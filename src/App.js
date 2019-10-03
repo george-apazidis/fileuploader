@@ -11,6 +11,13 @@ class App extends Component {
       filterOption: "All"
     };
   }
+
+  updateSearchTerm(term) {
+    this.setState({
+      searchTerm: term
+    });
+  }
+
   render() {
     // console.log(props)
     return (
@@ -18,6 +25,7 @@ class App extends Component {
         <SearchBar
           searchTerm={this.state.searchTerm}
           filterOption={this.state.filterOption}
+          handleUpdate={term => this.updateSearchTerm(term)}
         />
         <FilterableList
           files={this.props.files}
